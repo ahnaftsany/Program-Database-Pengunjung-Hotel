@@ -1,1 +1,268 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+	char kembali;  //deklarasi variabel//
+	int data();
+	int informasi();
+	int help();
+	char menu;
+	
+struct pengunjung {    // deklarasi array// 
+	char nama[40];
+	int umur;
+	char kamar[20];
+	char cekin[30];
+	char cekout[30];
+	char kelas[20];
+};
+
+void clearbuffer() {
+	char gf;
+	while ((gf = getchar()) != '\n' && gf != EOF);
+}
+
+int main()		//Tampilan utama dari program//
+{
+    printf("==========================================================================================\n");
+	printf("||                                                                                      ||\n");
+	printf("||                            Database Pengunjung Hotel TULIP                           ||\n");
+	printf("||                                                                                      ||\n");
+	printf("===========================================================================================");
+	
+	printf("\n                        Program ini bertujuan untuk memudahkan Anda dalam memasukan\n");
+	printf("                                               data pengunjung                           \n");                                            
+	printf("------------------------------------------------------------------------------------------------\n");
+                                          
+	printf("------------------------------------------------------------------------------------------------\n"); 
+   
+    menu:
+    printf("\t\t===================================================================\n");
+	printf("\t\t||                   Program database pengunjung hotel           ||\n");
+	printf("\t\t||                   						                  ||\n");
+	printf("\t\t===================================================================\n");
+	printf("\t\t|| Masukkan nomor dari menu yang ingin ditampilkan               ||\n");
+	printf("\t\t|| 1.Memasukan Data                                              ||\n");
+	printf("\t\t|| 2.Informasi                                                   ||\n");
+	printf("\t\t|| 3.Help                                                        ||\n");
+	printf("\t\t|| 4.Exit                                                        ||\n");
+	printf("\t\t===================================================================\n");
+	printf("\t\t||   Dimohon untuk tidak memasukkan input selain angka bulat :)  ||\n");
+	printf("\t\t===================================================================\n");
+   printf("\t\t\t\tAnda memilih menu : ");
+   scanf("%s", &menu);
+   system("cls");
+	
+	if(menu<'5')		// Pilihan menu//
+	{
+		switch (menu)
+		{
+			case '0':
+				printf("\nInput yang Anda masukan tidak terdapat dalam pilihan!\nSilakan masukan kembali pilihan Anda!\n");
+		        system("pause");
+	         	system("cls");
+	        	goto menu;
+				
+			case '1':
+				data();
+				break;
+			case '2':
+				informasi();
+				break;
+			case '3':
+				help();
+				break;
+			case '4':
+		       	return 0;
+		        break;
+		}
+	}
+	else		//pesan kesalahan//
+	{
+		printf("\nInput yang Anda masukan tidak terdapat dalam pilihan!\nSilakan masukan kembali pilihan Anda!\n");
+		system("pause");
+		system("cls");
+		goto menu;
+		
+	}
+system("cls");		//menghapus apa yang ada di layar//
+}
+
+int informasi()		//menu informasi//
+{
+				printf("\t\t\t===================================================================\n");
+			    printf("\t\t\t|| DATABASE PENGUNJUNG HOTEL v.1.0                               ||\n");
+			    printf("\t\t\t===================================================================\n");
+			    printf("\t\t\t||                                                               ||\n");
+			    printf("\t\t\t|| program ini diciptakan							 	           ||\n");
+			    printf("\t\t\t|| Untuk memasukan data pengunjung hotel                         ||\n");
+			    printf("\t\t\t|| ALL RIGHTS RESERVED & COPYRIGHT 2019                          ||\n");
+			    printf("\t\t\t||                                                               ||\n");
+		    	printf("\t\t\t===================================================================\n");
+		    	printf("\t\t\t|| 99.Kembali                                                    ||\n");
+		    	printf("\t\t\t===================================================================\n\n");
+		    	printf("\t\t\t\t\t\tPilihan menu : ");
+		    	scanf("%d", &kembali);
+		    	
+		    	if(kembali == 99)
+		    	{
+		    		
+					system("cls");
+					return main();
+				}
+				else
+				{
+					printf("===================================================================\n");
+					printf("||  Pilihan menu yang dimasukkan salah, silahkan masukkan lagi!  ||\n");
+					printf("===================================================================\n");
+				}
+
+}
+
+int help()		//menu untuk cara penggunaan//
+{
+				printf("\t\t\t===================================================================\n");
+			    printf("\t\t\t|| CARA PENGGUNAAN PROGRAM                                       ||\n");
+			    printf("\t\t\t===================================================================\n");
+			    printf("\t\t\t|| Pertama masukan berapa data pengunjung yang ingin dimasukan.  ||\n");
+			    printf("\t\t\t||                                                               ||\n");
+			    printf("\t\t\t|| Kedua masukan nama, umur, kamar, cek in,            		   ||\n");
+			    printf("\t\t\t|| cek out, dan kelas                                            ||\n");
+			    printf("\t\t\t||                                                               ||\n");
+			    printf("\t\t\t|| contohnya seperti ini                                         ||\n");
+			    printf("\t\t\t|| Nama            : Alex                                        ||\n");
+			    printf("\t\t\t|| Umur            : 18                                          ||\n");
+			    printf("\t\t\t|| Kode Kamar      : 121                                         ||\n");
+			    printf("\t\t\t|| Tanggal Cek in  : 27-10-2019                                  ||\n");
+			    printf("\t\t\t|| Tanggal Cek out : 29-10-2019                                  ||\n");
+			    printf("\t\t\t|| Kelas           : Reguler                                     ||\n");
+
+			    printf("\t\t\t|| untuk penulisan tanggal: tanggal-bulan-tahun.                 ||\n");
+			    printf("\t\t\t|| untuk penulisan kelas, hotel sakit ini menyediakan            ||\n");
+			    printf("\t\t\t|| kelas Reguler dan VIP.   									   ||\n");
+                printf("\t\t\t|| Data akan disimpan di Notepad                                 ||\n");                  
+                                           
+		    	printf("\t\t\t===================================================================\n");
+		    	printf("\t\t\t|| 99.Kembali                                                    ||\n");
+		    	printf("\t\t\t===================================================================\n\n");
+		    	printf("\t\t\t\t\t\tPilihan menu : ");
+				scanf("%d", &kembali);
+		    	
+		    	if(kembali == 99)
+		    	{
+		    		
+					system("cls");
+					return main();
+				}
+				else
+				{
+					printf("===================================================================\n");
+					printf("||  Pilihan menu yang dimasukkan salah, silahkan masukkan lagi!  ||\n");
+					printf("===================================================================\n");
+				}
+
+}
+
+
+int data () { 
+	FILE *Database;
+	struct pengunjung daftar[1000];
+	int i;
+	int ndata;
+	
+	Database=fopen("Database.doc", "a");
+	if(Database==NULL)
+		{
+			printf("tidak bisa membuka file\n");
+		}
+		else
+		{
+			fprintf(Database, "===============================================================\n");
+			fprintf(Database, "|                     DATABASE PENGUNJUNG                       |\n");
+			fprintf(Database, "================================================================\n");	
+			fclose(Database);
+		}	
+		
+	
+	printf("Banyak Data\t: ");
+	scanf("%d", &ndata);
+	
+	printf("Entri Data\n");
+	
+    for(i=1; i<=ndata; i++){
+		printf("\nPengunjung ke-%d\n", i);
+		
+		printf("Nama \t\t\t: "); scanf("%s", daftar[i].nama);
+		clearbuffer();
+		
+		printf("Umur \t\t\t: "); scanf("%d", &daftar[i].umur);
+		clearbuffer();
+		
+		
+		printf("Kode Kamar \t\t: "); scanf("%[^\n]", daftar[i].kamar);
+		clearbuffer();
+		
+		printf("Tanggal Cek in \t\t : "); scanf("%[^\n]", daftar[i].cekin);
+		clearbuffer();
+		
+		printf("Tanggal Cek out \t: "); scanf("%[^\n]", daftar[i].cekout);
+		clearbuffer();
+		
+		printf("Kelas \t\t\t: "); scanf("%[^\n]", daftar[i].kelas);
+		clearbuffer();
+		
+		
+		Database = fopen("Database.doc", "a");
+				
+	
+	    if(Database==NULL)
+		{
+			printf("tidak bisa membuka file\n");
+		}
+		else
+		{
+			fprintf(Database, "|Nama\t\t\t: %s\n|Umur\t\t\t: %d\n|Kode Kamar\t\t: %s\n|Cek In\t\t: %s\n|Cek out\t\t: %s\n|Kelas\t\t: %s\n\n",
+		  daftar[i].nama,
+		  daftar[i].umur,
+		  daftar[i].kamar,
+		  daftar[i].cekin,
+		  daftar[i].cekout,
+		  daftar[i].kelas
+	     
+	   );
+			
+			fclose(Database);
+		}
+	
+
+}	
+    
+    printf("\n\nData Berhasil Disimpan\n");
+    	printf("\t\t\t===================================================================\n");
+		printf("\t\t\t|| 0.Exit                                                        ||\n");
+		printf("\t\t\t|| 99.Kembali                                                    ||\n");
+		printf("\t\t\t===================================================================\n\n");
+		printf("\t\t\t\t\t\tPilihan menu : ");
+		scanf("%d", &kembali);
+		    	
+		    	if(kembali == 99)
+		    	{
+		    		
+					system("cls");
+					return main();
+				}
+				else if(kembali == 0)
+				{
+					
+					system("cls");
+					return 0;
+				}
+				else
+				{
+					printf("===================================================================\n");
+					printf("||  Pilihan menu yang dimasukkan salah, silahkan masukkan lagi!  ||\n");
+					printf("===================================================================\n");
+				}
+ 
+	return 0;
+	
+}
